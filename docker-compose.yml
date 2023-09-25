@@ -10,7 +10,7 @@ services:
   ide:
     build:
       context: .
-      dockerfile: Dockerfile.vim
+      dockerfile: Dockerfile.nvim
     image: ncs-build-ide
     container_name: ncs-build
     restart: always
