@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  ncs:
+    build:
+      context: .
+      dockerfile: Dockerfile.ncs
+    image: ncs-build:v2.4.2
+
+  ide:
+    build:
+      context: .
+      dockerfile: Dockerfile.vim
+    image: ncs-build-ide
+    container_name: ncs-build
+    restart: always
+    volumes:
+      # working zephyr app
+      - /Users/bradkim06/hhs/docker/work:/ncs/user_app
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
